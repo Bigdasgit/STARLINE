@@ -28,16 +28,3 @@ Run ```python build_data.py --name={Dataset}```
 
 ### Acknowledgement
 The structure of this code is largely based on [MONET](https://github.com/Kimyungi/MONET). Thank for their work.
-*Men Clothing and Women Clothing*: Download Amazon product dataset provided by [MAML](https://github.com/liufancs/MAML). Put data folder into the directory data/.
-
-*Sports and Toys & Games*: Download 5-core reviews data, meta data, and image features from [Amazon product dataset](http://jmcauley.ucsd.edu/data/amazon/links.html). Put data into the directory data/{folder}/meta-data/.
-
-#### Dataset Preprocessing
-Run ```python build_data.py --name={Dataset}```
-
-### Run
-```
-python main.py --alpha=0.3 --beta=0.6 --gamma=0.4 --delta=0.9 --dataset=WomenClothing --model_name=MELON_3_6_4_9
-```
-### Acknowledgement
-The structure of this code is largely based on [MONET](https://github.com/Kimyungi/MONET). Thank for their work.
