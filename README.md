@@ -11,7 +11,6 @@ This repository provides the official PyTorch implementation of STARLINE, as int
 The code has been tested running under Python 3.6.13. The required packages are as follows:
 - ```gensim==3.8.3```
 - ```pytorch==1.10.2+cu113```
-- ```torch_geometric=2.0.3```
 - ```sentence_transformers=2.2.0```
 - ```pandas```
 - ```numpy```
