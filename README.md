@@ -15,6 +15,7 @@ The code has been tested running under Python 3.6.13. The required packages are 
 - ```sentence_transformers=2.2.0```
 - ```pandas```
 - ```numpy```
+- ```scipy```
 - ```tqdm```
 
 ### Dataset Preparation
