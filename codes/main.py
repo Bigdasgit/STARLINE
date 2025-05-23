@@ -20,6 +20,7 @@ def run_model():
         perf_str = 'Epoch %d: time = [%.1fs], train loss = [%.5f = %.5f + %.5f + %.5f]' % (
             epoch, time() - t1, train_log['Total loss'], train_log['BPR loss'], train_log['Reg loss'], train_log['CL loss']
         )
+        print(perf_str)
 
         if epoch % args['verbose'] == 0:
             t2 = time()
