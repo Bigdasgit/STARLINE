@@ -114,4 +114,4 @@ class STARLINE_trainer:
         return result
     
     def save_model(self):
-        torch.save({self.model_name: self.model.state_dict()}, '/saved_models/' + self.model_name)
+        torch.save({self.model_name: self.model.state_dict()}, 'saved_models/' + self.model_name)
