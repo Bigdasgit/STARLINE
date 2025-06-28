@@ -349,7 +349,7 @@ class STARLINE(nn.Module):
 
         ## cl ##
         # infonce_loss = torch.mean(clogits_item + clogits_user_refined + clogits_item_refined)  # clogits_item + clogits_user_refined + clogits_item_refined
-        infonce_loss = torch.mean(clogits_user_refined) + torch.mean(clogits_item_refined)
+        infonce_loss = (1/2) * (torch.mean(clogits_user_refined) + torch.mean(clogits_item_refined))
         ########
     
         return infonce_loss
