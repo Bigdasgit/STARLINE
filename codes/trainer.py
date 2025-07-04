@@ -59,8 +59,8 @@ class STARLINE_trainer:
         print(f"saved model name: {self.model_name}")
         
         set_seed(args['seed'])
-        self.model = STARLINE(self.n_users, self.n_items, self.n_layers, self.has_norm, self.feat_embed_dim, self.adj_matrix, self.rating_matrix, self.image_feats, self.text_feats, self.alpha, self.beta, self.cl_temp, self.gumbel_temp, self.cos_v, self.cos_t)
-        self.model.to(self.device)
+        self.model = STARLINE(self.n_users, self.n_items, self.feat_embed_dim, self.nonzero_idx, self.has_norm, self.image_feats, self.text_feats, self.n_layers,
+                                         self.alpha, self.beta, self.agg, self.ssl_temp, self.gumbel_temp, self.cos_v, self.cos_t)
         self.optimizer = optim.Adam(self.model.parameters(), lr=self.lr)
         
     def train(self):
@@ -105,7 +105,8 @@ class STARLINE_trainer:
             if is_val:
                 ua_embeddings, ia_embeddings, _, _ = self.model()
             else: 
-                self.model = STARLINE(self.n_users, self.n_items, self.n_layers, self.has_norm, self.feat_embed_dim, self.adj_matrix, self.rating_matrix, self.image_feats, self.text_feats, self.alpha, self.beta, self.cl_temp, self.gumbel_temp, self.cos_v, self.cos_t)
+                self.model = STARLINE(self.n_users, self.n_items, self.feat_embed_dim, self.nonzero_idx, self.has_norm, self.image_feats, self.text_feats, self.n_layers,
+                                         self.alpha, self.beta, self.agg, self.ssl_temp, self.gumbel_temp, self.cos_v, self.cos_t)
                 self.model.load_state_dict(torch.load('saved_models/' + self.model_name, map_location='cpu', weights_only=True)[self.model_name])
                 self.model.cuda()
                 ua_embeddings, ia_embeddings, _, _ = self.model()
